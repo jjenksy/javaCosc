@@ -20,6 +20,10 @@ public class Main {
 
 }
 
+    /**
+     * @add takes in a string and outputs it to the console
+     * @param a String argument to be logged to the console.
+     */
     public static void add(String a)
     {
         System.out.println(a);
