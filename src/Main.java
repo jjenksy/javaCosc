@@ -1,6 +1,8 @@
 /**
- * John Jenkins COSC
- *
+ * COSC 1173 Programming Lab
+ * Name: John Jenkins
+ * Data: 8/23/2016
+ * Display personal information
  */
 public class Main {
 
