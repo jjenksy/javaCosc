@@ -15,7 +15,7 @@ public class Lab1 {
      * @printData display the personal info arguments passed from the main method
      * @param name String containing name
      * @param major String containing major
-     * @param hobbies String containing hobbie
+     * @param hobbies String containing hobbies
      */
     public static void printData(String name, String major, String hobbies)
     {
