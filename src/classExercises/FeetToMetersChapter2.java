@@ -11,7 +11,7 @@ public class FeetToMetersChapter2 {
 
 
         // Create constant value
-        final double METERS_PER_FOOT = 3.2808;
+        final double METERS = 0.305;
         //creat a scanner object
         Scanner input = new Scanner(System.in);
 
@@ -19,7 +19,7 @@ public class FeetToMetersChapter2 {
         double x = input.nextDouble();
 
         //feet to meters
-        double y = (int)x / METERS_PER_FOOT;
+        double y = x * METERS;
 
 //      y = ((int)(y * 10000) / 10000.0);
         //result
