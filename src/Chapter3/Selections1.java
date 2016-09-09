@@ -1,7 +1,12 @@
 package Chapter3;
 
 import java.util.Scanner;
-
+/**
+ * COSC 1173 Programming Lab
+ * @author Name: John Jenkins
+ * Data: 9/09/2016
+ * Selections 1 Lab 3
+ *******************************/
 /**
  * Created by jjenkins on 9/9/2016.
  * Programming Question
@@ -18,14 +23,18 @@ import java.util.Scanner;
 public class Selections1 {
     public static void main(String[] args) {
 
+        //create a scanner object called input
         Scanner input = new Scanner(System.in);
 
+        //print to the console and take users input
         System.out.print("Please input the weight of the package (in pounds): ");
         int weight = input.nextInt();
 
+        //print to the console and take users input
         System.out.print("Please input the price of the product (in dollars): ");
         int dollars = input.nextInt();
 
+        // determine if weight is within assignment params
         if(weight>0 && dollars>0){
             if(0 < weight && weight <= 1 ){
                 shippingDetails(3.5, dollars);
@@ -41,10 +50,12 @@ public class Selections1 {
             }
             else{
 
+                // if not withing positive params. Output to console
                 System.out.println("the package cannot be shipped");
             }
         }
         else {
+            // if negative output to console
             System.out.println("The weight/Price cannot be negative");
         }
 
@@ -52,10 +63,18 @@ public class Selections1 {
 
 
     }
+
+    /**
+     *
+     * @param frieghtCost the cost of the frieght based on weight
+     * @param dollars the cost of the item
+     */
     private static void shippingDetails(double frieghtCost, int dollars){
 
 
+        //log info to console
         System.out.println("The shipping cost (in dollars): " + frieghtCost);
+        //cast int to double then add and log to console
         System.out.println("The total amount is (in dollars): " +((double)dollars + frieghtCost));
 
     }
