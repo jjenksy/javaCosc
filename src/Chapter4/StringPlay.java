@@ -1,4 +1,4 @@
-package classExercises;
+package Chapter4;
 /**
  * COSC 1173 Programming Lab
  * @author Name: John Jenkins
