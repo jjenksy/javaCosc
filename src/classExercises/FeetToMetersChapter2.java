@@ -9,10 +9,9 @@ public class FeetToMetersChapter2 {
 
     public static void main (String[] args){
 
-
         // Create constant value
-        final double METERS = 0.305;
-        //creat a scanner object
+               final double METERS = 0.305;
+        //create a scanner object
         Scanner input = new Scanner(System.in);
 
         System.out.print("Enter a value for feet: ");
