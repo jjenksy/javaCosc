@@ -11,9 +11,9 @@ public class LEAPYEARS {
     public static void main(String[] args) {
         Scanner stdin = new Scanner(System.in);
         int noOfLeapYear = 0;
-        System.out.print("Enter the starting year:");
+        System.out.print("Enter the starting year: ");
         int startYear = stdin.nextInt();
-        System.out.print("Enter the ending year:");
+        System.out.print("Enter the ending year: ");
         int endYear = stdin.nextInt();
 
 
@@ -31,7 +31,7 @@ public class LEAPYEARS {
             }
         }
 
-        System.out.println("\nThere were "+noOfLeapYear+" leap years from "+startYear+" to "+endYear);
+        System.out.print("There were "+noOfLeapYear+" leap years from "+startYear+" to "+endYear);
 
     }
 }
