@@ -3,14 +3,19 @@ package classExercises;
 import java.util.Scanner;
 
 /**
- * Created by jjenkins on 9/16/2016.
+ * /**
+ ** COSC 1173 Programming Lab
+ * @author Name: John Jenkins
+ * Data: 10/2/2016
+ * LOOPPATTERN Create the pattern
  */
 public class LOOPPATTERN {
 
     //pattern while loop problem
             public static void main(String[] args) {
+                //ask user for input
                 System.out.print("Enter an integer to be a limit of the pattern:");
-                Scanner stdin = new Scanner(System.in);
+                Scanner stdin = new Scanner(System.in);//create a scanner obj
 
                 // get the total number of lines n.
                 int n = stdin.nextInt();

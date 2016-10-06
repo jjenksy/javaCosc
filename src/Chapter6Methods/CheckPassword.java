@@ -3,7 +3,10 @@ package Chapter6Methods;
 import java.util.Scanner;
 
 /**
- * Created by jjenkins on 10/4/2016.
+ * /**
+ ** COSC 1173 Programming Lab
+ * @author Name: John Jenkins
+ * Data: 10/6/2016
  * Some website impose certain rules for passwords. Write a method that checks whether a string is a valid password
  * Suppose the password rules are as follows
  * A password must have at least 8 characters
@@ -14,21 +17,27 @@ import java.util.Scanner;
  */
 public class CheckPassword {
     public static void main(String args[]){
+        //create a scanner obj
         Scanner input = new Scanner(System.in);
+        //ask the user for inut
         System.out.print("Enter a password:");
 
+        //check the input against the boolean messages
         if(checkPassword(input.nextLine())){
             System.out.println("Valid Password");
         }else{
+            //if input false log to console
             System.out.println("Invalid Password");
         }
     }
 
+    //public method run the checkpassword program
     public static boolean checkPassword(String pass){
+        //if checkLength false return false
         if(checkLength(pass)){
-            if (checkLettersDigits(pass)){
-                if(containsDigits(pass)){
-                    return true;
+            if (checkLettersDigits(pass)){//if checkLettesDigits false return false
+                if(containsDigits(pass)){ //if containsDigits false return false
+                    return true; //if all true return true
                 }
             }
         }
@@ -36,6 +45,10 @@ public class CheckPassword {
 
 
     }
+
+    /**
+     * Check if length is atleast 8 long
+     */
     private static boolean checkLength(String pass){
         //return true if the length is greater then or equal to 8 and false otherwise
         return pass.length()>=8 ? true : false;
