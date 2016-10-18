@@ -6,25 +6,16 @@ package chapter7Arrays;
  */
 public class IsReverse {
     public static void main(String args[]){
-
+       System.out.println(isReverse(new int[]{1,2,3}, new int[]{4,2,1}));
     }
     public static boolean isReverse(int[] one , int[] two){
-        boolean isReverse = false;
-        if(one.length == two.length){
-         int j = one.length;
-            for(int i = 0; i< one.length; i++){
-
-                if(!isReverse){
-
-                }
-
+        boolean result = true;
+        for(int i =0; i < one.length; i++){
+            if(one[i] != two[two.length - i -1]){
+                result =false;
             }
-
-
         }
 
-
-
-        return isReverse;
+        return result;
     }
 }

@@ -64,9 +64,6 @@ public class GetBigWords {
                 }
             }
         }
-//        for(int i = 0; i<words.length; i++){
-//            System.out.println(words[i]);
-//        }
 
         return words;
     }
