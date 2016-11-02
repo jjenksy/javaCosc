@@ -17,25 +17,35 @@ package chapter7Arrays;
 
 import java.util.Scanner;
 
-public class ASSIGNGRADES {
+public class AssignGrades {
     public static void main(String args[]){
 
-        ASSIGNGRADES();
+        //call the AssignGrades method
+        AssignGrades();
 
     }
 
 
-    public static void ASSIGNGRADES() {
+    /**
+     * Takes in a given amount of students and then askes for there scores then outputs the letter grade score
+     */
+    public static void AssignGrades() {
+        //create a scanner object
         Scanner input = new Scanner(System.in);
+        //ask the user for input
         System.out.print("Enter the number of students:");
+        //get the input
         int students =input.nextInt();
+        //create a new int array with the input as the length
         int[] scores = new int[students];
+        //logs out how many scores to enter
         System.out.print("Enter "+students+" scores:");
         //get all my inputs
         for(int i=0; i<students; i++){
-
+            //set the input to index positions in the array
             scores[i]=input.nextInt();
         }
+
 
         int best = 0;
         //determine the highest score
