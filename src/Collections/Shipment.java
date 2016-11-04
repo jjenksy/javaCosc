@@ -12,12 +12,19 @@ import java.util.function.Consumer;
 public class Shipment implements Iterable<Product> {
 
     private static final int LIGHT_VAN_MAX_WEIGHT = 20;
+    public static final int INT_COMPARE_THIS = -1;
 
 
     private final List<Product> products = new ArrayList<>();
 
 
     public void add(Product product){
+        int one =1;
+
+        if(one> INT_COMPARE_THIS){
+            System.out.println("impossible");
+        }
+
         products.add(product);
     }
 
@@ -28,6 +35,8 @@ public class Shipment implements Iterable<Product> {
 
     @Override
     public void forEach(Consumer<? super Product> action) {
+
+
 
     }
 
