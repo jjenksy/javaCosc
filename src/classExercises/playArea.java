@@ -6,7 +6,9 @@ package classExercises;
  * Created by jjenkins on 9/18/2016.
  */
 public class playArea {
-
+    int[][][] x = {{{5,5,5,5},{5,5,5,5}},
+            {{7,7,7,7},{7,7,7,7}},
+            {{8,8,8,8},{30,31,32,33}}};
     static int number2 = getValue();
     static int number1 = 10;
     static int getValue(){
