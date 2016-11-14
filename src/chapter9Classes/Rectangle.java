@@ -5,42 +5,62 @@ package chapter9Classes;
  */
 public class Rectangle {
     private double width = 1;
-    private double height =1;
+    private double length =1;
 
+    /**
+     * Default no-arg constructor
+     */
     public Rectangle() {
 
     }
-
-    public Rectangle(double width, double height) {
+    // constructor with parameter
+    public Rectangle(double width, double length) {
+        //todo check to insure positive
         this.width = width;
-        this.height = height;
+        this.length = length;
     }
 
-    public double getArea(){
-        return height*width;
+    //setters/accessors
+    /** set width */
+    public void setWidth(double width) {
+        this.width = width;
     }
 
-    public double getPerimeter(){
-        return 2*(height+width);
+    /** Set length */
+    public void setLength(double length) {
+        this.length = length;
     }
 
+    //getters/mutators
+    /** Return width */
     public double getWidth() {
         return width;
     }
-
-    public double getHeight() {
-        return height;
+    /** Return length */
+    public double getLength() {
+        return length;
     }
 
-    public static void main (String [] args){
-        Rectangle a = new Rectangle(4.0,40.0);
-        System.out.println("The area of a " + a.width +" x " +a.height+" Rectangle is " +a.getArea());
-        System.out.println("The perimeter of a " + a.width +" x " +a.height+" Rectangle is " +a.getPerimeter());
-        Rectangle b = new Rectangle(3.5, 35.9);
-        System.out.println("The area of a " + b.width +" x " +b.height+" Rectangle is " +b.getArea());
-        System.out.println("The perimeter of a " + b.width +" x " +b.height+" Rectangle is " +b.getPerimeter());
+    /** Return area */
+    public double getArea(){
+        return length *width;
+    }
+    /** Return perimeter */
+    public double getPerimeter(){
+        return 2*(length +width);
+    }
 
+    /**
+     * Print out the data to the console
+     */
+    public void RestangleToString(String name){
+        System.out.println("The area of "+name + " "  + width +" x " +length+" Rectangle is " +getArea());
+       System.out.println("The perimeter of a "+name + " " + width +" x " + length+" Rectangle is " + getPerimeter());
 
     }
+
+
+
+
 }
 
