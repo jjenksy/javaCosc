@@ -4,14 +4,19 @@ package chapter9Classes;
  * Created by jjenkins on 11/14/2016.
  */
 public class Rectangle {
-    private double width = 1;
-    private double length =1;
+    private double width;
+    private double length;
 
+    //default final values to avoid using magic numbers
+    public static final int DEFAULT_WIDTH =1;
+    public static final int DEFAULT_LENGTH =1;
+    public static final int NON_NEGATIVE = 0;
     /**
      * Default no-arg constructor
      */
     public Rectangle() {
-
+        //set a default values by calling the constructor with 2 args
+        this(DEFAULT_WIDTH,DEFAULT_LENGTH);
     }
     // constructor with parameter
     public Rectangle(double width, double length) {
