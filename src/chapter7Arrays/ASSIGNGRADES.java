@@ -17,7 +17,7 @@ package chapter7Arrays;
 
 import java.util.Scanner;
 
-public class AssignGrades {
+public class ASSIGNGRADES {
     public static void main(String args[]){
 
         //call the AssignGrades method
