@@ -7,7 +7,7 @@ package cs2.Lab1_hw1;
  *Instructor: Kami Makki, Ph.D.
  * Lab 1 Hw1
  * Due Date: Tuesday, January 31, 2017
- * 
+ *
  */
 public class Ticket {
     public static final char SERVICE_A = 'A'; //the other service that is not default
