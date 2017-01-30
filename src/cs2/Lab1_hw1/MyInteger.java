@@ -184,14 +184,10 @@ public class MyInteger {
      * parseInt with char arg takes in an int array of chars and
      * iterates the array and parses each char to an int
      * @param charInt the array of chars
-     * @return a totaled values of ints
+     * @return a parsed string of chars
      */
     public static int parseInt(char []charInt){
-        int total = 0;
-        for (int i = 0; i < charInt.length; i++){
-            total += Character.getNumericValue(charInt[i]);
-        }
-        return total;
+       return parseInt(new String(charInt));
     }
 
 
