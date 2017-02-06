@@ -1,4 +1,4 @@
-package cs2.Lab1_hw1.playground;
+package cs2.playground;
 
 import java.util.ArrayList;
 
