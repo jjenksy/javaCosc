@@ -1,27 +1,55 @@
 package cs2.lab2;
 
 /**
- * Created by jjenkins on 2/6/2017.
+ * John Jenkins
+ * 02/07/2017
+ * COSC 1174-048
+ *Instructor: Kami Makki, Ph.D.
+ * Lab 2 Hw2
+ * Due Date: Tuesday, February 7, 2017
+ * Card class is used as the parent class for creating card class it has a name variable with appropriate getter and default
+ * constructor
  */
 public class Card {
-    protected String name;
+    protected String name;//the name on the card
 
+    /**
+     * No arg default constructor
+     */
     public Card() {
         name = "";
     }
 
+    /**
+     * Constructor with String name arg to set the name
+     * @param name the String name
+     */
     public Card(String name) {
         this.name = name;
     }
 
+    /**
+     * Accessor to get the name
+     * @return
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Boolean to test if card is expired
+     * this method is meant to be overridden if
+     * implemented
+     * @return always false
+     */
     public boolean isExpired(){
         return false;
     }
 
+    /**
+     * Creates a String formatted with card holders name
+     * @return String value
+     */
     public String format(){
         return "Card holder: " + name;
     }

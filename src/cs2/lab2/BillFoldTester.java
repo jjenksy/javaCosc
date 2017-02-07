@@ -1,8 +1,14 @@
 package cs2.lab2;
 
 /**
- * Created by jjenkins on 2/6/2017.
- * This is a test class for my BillFold class
+ * John Jenkins
+ * 02/07/2017
+ * COSC 1174-048
+ * Instructor: Kami Makki, Ph.D.
+ * Lab 2 Hw2
+ * Due Date: Tuesday, February 7, 2017
+ * This is the main method for
+ * testing all the functions required to test based on the hwk assigned
  */
 public class BillFoldTester {
 

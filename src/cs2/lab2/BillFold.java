@@ -1,7 +1,14 @@
 package cs2.lab2;
 
 /**
- * Created by jjenkins on 2/6/2017.
+ * John Jenkins
+ * 02/07/2017
+ * COSC 1174-048
+ *Instructor: Kami Makki, Ph.D.
+ * Lab 2 Hw2
+ * Due Date: Tuesday, February 7, 2017
+ * The BillFold class takes in two card instances
+ * has a method to format the output, getExpiredCount and add Card
  */
 public class BillFold {
     //instance methods of the parent class that represent dynamic binding of polymorphism

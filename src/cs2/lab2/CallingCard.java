@@ -1,13 +1,19 @@
 package cs2.lab2;
 
 import java.util.Objects;
-
 /**
- * Created by jjenkins on 2/6/2017.
+ * John Jenkins
+ * 02/07/2017
+ * COSC 1174-048
+ *Instructor: Kami Makki, Ph.D.
+ * Lab 2 Hw2
+ * Due Date: Tuesday, February 7, 2017
+ * This CallingCard class extends the Card class. Adding the cardNumber and pin to make a calling card
+ * it overides the format, toString and equals methods
  */
 public class CallingCard extends Card {
-    private String cardNumber;
-    private String pin;
+    private String cardNumber;//the card number instance variables
+    private String pin; // the pin instance varibles
 
     /**
      * No arg constructor
@@ -17,9 +23,9 @@ public class CallingCard extends Card {
 
     /**
      * Cunstructor with 3 args
-     * @param name
-     * @param pin
-     * @param cardNumber
+     * @param name the name on tha card
+     * @param pin the pin assigned to card
+     * @param cardNumber the card number
      */
     public CallingCard(String name, String pin, String cardNumber) {
         super(name);
@@ -28,6 +34,11 @@ public class CallingCard extends Card {
 
     }
 
+    /**
+     * Creates a String formatted with card holders name
+     * card number and pin
+     * @return String value
+     */
     @Override
     public String format() {
         return super.format()+"\n"+

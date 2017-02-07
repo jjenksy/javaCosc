@@ -4,7 +4,14 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 /**
- * Created by jjenkins on 2/6/2017.
+ * John Jenkins
+ * 02/07/2017
+ * COSC 1174-048
+ *Instructor: Kami Makki, Ph.D.
+ * Lab 2 Hw2
+ * Due Date: Tuesday, February 7, 2017
+ * The drivers license class extends the Id card class adding the expiration year and proper implementation
+ * of the is expired method
  */
 public class DriverLicense extends IDCard {
     private int expirationYear;
@@ -17,21 +24,31 @@ public class DriverLicense extends IDCard {
 
     /**
      * Constructor with three args
-     * @param n
-     * @param id
-     * @param expirationYear
+     * @param n the nome on the caed
+     * @param id the id of the card
+     * @param expirationYear the int expiration year (ex: 2017)
      */
     public DriverLicense(String n, String id, int expirationYear) {
         super(n, id);
         this.expirationYear = expirationYear;
     }
 
+    /**
+     * Creates a String formatted with card holders name the id number
+     * and expiration year
+     * @return String value
+     */
     @Override
     public String format() {
         return super.format()+"\n"
                 +"Expiration Year: "+ expirationYear;
     }
 
+    /**
+     * the isExpired method checks to see if the current calendar year is greater or equal
+     * to the year entered if the year is greater isExpired = true if the year is less the false
+     * @return
+     */
     @Override
     public boolean isExpired() {
         GregorianCalendar calendar = new GregorianCalendar();

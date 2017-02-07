@@ -2,22 +2,23 @@ package cs2.lab2;
 
 import org.junit.Assert;
 import org.junit.Test;
-
 /**
- * Created by jjenkins on 2/6/2017.
+ * John Jenkins
+ * 02/07/2017
+ * COSC 1174-048
+ *Instructor: Kami Makki, Ph.D.
+ * Lab 2 Hw2
+ * Due Date: Tuesday, February 7, 2017
+ * Test class for my calling card class
  */
 public class CallingCardTest {
 
-    @Test
-    public void testFormat() throws Exception {
 
-    }
-
-    @Test
-    public void testToString() throws Exception {
-
-    }
-
+    /**
+     * This test passes if the AssertTrue sees true return from the two
+     * equal cards and assertFalse returns false from the non equal cards
+     * @throws Exception
+     */
     @Test
     public void testEquals() throws Exception {
         //test the CallingCard equals method
