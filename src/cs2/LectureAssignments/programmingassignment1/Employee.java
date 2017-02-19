@@ -4,6 +4,13 @@ package cs2.LectureAssignments.programmingassignment1;
  * Created by jenksy on 2/19/17.
  * The Employee class should define an employee’s first and last name, and include an abstract class for calculating pay. A manager’s pay is based on a pay period specified in weeks. Associates pay is by the hour.
  * The abstract pay() method in Employee will be overridden in Manager and Associate.
+ * Employee
+ -	firstName
+ -	lastName
+ + Employee(fName: string, lName: string)
+ + pay(period: double)     //abstract class; should return employee pay for specified period
+ +toString()        // returns a string with employee first and last names
+
  */
 public abstract class Employee {
     private String firstName; //the firstName of the employee

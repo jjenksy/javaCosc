@@ -5,6 +5,9 @@ import java.util.Scanner;
 
 /**
  * Created by jenksy on 2/19/17.
+ * 1.	The SalesCenter application stores information about three employees. There is one manager (Diego Martin, salary $55,000), and two associates (Kylie Walter earning 18.50 per hour and Michael Rose earning $16.75 per hour). SalesCenter should be able to display the name and title for a specified employee. Additionally, the SalesCenter application should calculate and display the pay for a specified employee based on the pay argument entered by the user. The pay argument is hours worked if the pay is for an associate. The pay argument is number of weeks if the manager pay is to be calculated.
+ * The SalesCenter interface provides a menu of options. Depending on the option, additional input may be required. An example of the inputs and outputs below:
+ *
  */
 public class SalesCenter {
     /**
