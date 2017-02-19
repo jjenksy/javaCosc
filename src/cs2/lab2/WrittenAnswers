@@ -1,0 +1,12 @@
+
+ John Jenkins
+ 02/07/2017
+ COSC 1174-048
+ Instructor: Kami Makki, Ph.D.
+ Lab 2 Hw2
+ Due Date: Tuesday, February 7, 2017
+
+1.) True
+2.) True
+3.) I have written to test classes and methods in this homework called. BillFoldTest.java and CallingCardTest.java that show software testing procedures. These test can be integrated withe
+maven and allow for automated testing during the build process.
