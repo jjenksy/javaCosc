@@ -1,6 +1,11 @@
 package cs2.LectureAssignments.programmingassignment1;
 
 /**
+ *  * * John Jenkins
+ * 02/19/2017
+ * COSC 1337
+ *Instructor: Keith Mott
+ * Programming Assignment I
  * Created by jenksy on 2/19/17.
  * Associate (extends Employee)
  -	+Associate(fname hourlyPayRate

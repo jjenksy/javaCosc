@@ -18,6 +18,11 @@ public class Manager extends Employee{
     }
 
     /**
+     *  * * John Jenkins
+     * 02/19/2017
+     * COSC 1337
+     *Instructor: Keith Mott
+     * Programming Assignment I
      * Contructor with args to setup the manager
      * @param firstName
      * @param lastName

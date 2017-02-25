@@ -6,6 +6,11 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
+ *  * * John Jenkins
+ * 02/19/2017
+ * COSC 1337
+ *Instructor: Keith Mott
+ * Programming Assignment I
  * Created by jenksy on 2/19/17.
  * 1.	Write a Java method that removes any duplicate elements from an ArrayList of integers. The method has the following header(signature):
  * public static void removeDuplicate(ArrayList<Integer> list)

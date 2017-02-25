@@ -1,6 +1,11 @@
 package cs2.LectureAssignments.programmingassignment1;
 
 /**
+ *  * * John Jenkins
+ * 02/19/2017
+ * COSC 1337
+ *Instructor: Keith Mott
+ * Programming Assignment I
  * Created by jenksy on 2/19/17.
  * The Employee class should define an employee’s first and last name, and include an abstract class for calculating pay. A manager’s pay is based on a pay period specified in weeks. Associates pay is by the hour.
  * The abstract pay() method in Employee will be overridden in Manager and Associate.

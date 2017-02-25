@@ -6,6 +6,11 @@ import java.util.Collections;
 import java.util.Scanner;
 
 /**
+ * * John Jenkins
+ * 02/19/2017
+ * COSC 1337
+ *Instructor: Keith Mott
+ * Programming Assignment I
  * Created by jenksy on 2/19/17.
  * 1.	Create a MergeFiles application that merges the integers ordered from low to high in two text data files into a third text data file, maintaining the order from low to high (no post merge sorts!). For example, the two files of integers could contain:
  * File 1: 12 23 34 45 56 67 69 123 133
