@@ -3,6 +3,7 @@ package cs2;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.FlowPane;
@@ -20,13 +21,21 @@ public class ShowFlowPane extends Application {
         pane.setHgap(5);
         pane.setVgap(5);
 
+        //create a button
+        Button btOK = new Button();
+        btOK.setText("OK");
+        btOK.setOnAction(event -> {
+            System.out.println("hello from button.");
+        });
+
         //place nodes
         pane.getChildren().addAll(new Label("First Name:"),
                 new TextField(), new Label("MI:"));
         TextField tfMI = new TextField();
         tfMI.setPrefColumnCount(1);
         pane.getChildren().addAll(tfMI, new Label("Last Name:"),
-                new TextField());
+                new TextField(), btOK);
+
 
 
         //create a scene and place it on the stage
