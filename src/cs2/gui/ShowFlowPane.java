@@ -1,4 +1,4 @@
-package cs2;
+package cs2.gui;
 
 import javafx.application.Application;
 import javafx.geometry.Insets;
