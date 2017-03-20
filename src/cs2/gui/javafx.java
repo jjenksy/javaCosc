@@ -35,7 +35,7 @@ public class javafx extends Application {
 
         btOK.setText("Say, Hello World");
         btOK.setOnAction(event -> {
-            System.out.println("hello from button.");
+            System.out.println(event.getSource());
         });
         //Write code fragments to create a round-cornered rectangle of width 100 and height 200
         // with the upper-left corner at (10, 10), corner horizontal diameter 40,
@@ -58,7 +58,7 @@ public class javafx extends Application {
         arc.setType(ArcType.ROUND);
 
         Pane pane = new Pane();
-        pane.getChildren().add(arc);
+        pane.getChildren().add(btOK);
         Scene scene = new Scene(pane,200, 250);
 
         primaryStage.setTitle("MyJavaFX");
