@@ -1,12 +1,20 @@
 package cs2.assignment2;
 
 import javafx.application.Application;
+import javafx.collections.ObservableList;
+import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.control.Label;
+import javafx.scene.input.MouseButton;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
+
+import java.util.ArrayList;
 
 /**
  * Created by jjenkins on 3/21/2017.
@@ -29,6 +37,9 @@ import javafx.stage.Stage;
 
  */
 public class RectangledCircles extends Application{
+    Pane pane = new Pane();//pane object
+    ArrayList<Circle> mCircles = new ArrayList<>();
+
     private Circle circleToRemove;
 
     public Circle getCircleToRemove() {
@@ -38,49 +49,122 @@ public class RectangledCircles extends Application{
     public void setCircleToRemove(Circle circleToRemove) {
         this.circleToRemove = circleToRemove;
     }
-
     @Override
-    public void start(Stage primaryStage) throws Exception {
-        double width = 500;
-        double height = 500;
+    public void start(Stage primaryStage) {
 
+        double width = 600;
+        double height = 400;
+        // VBox
+        VBox infoVBox = new VBox();
+        infoVBox.setPadding(new Insets(5, 5, 5, 5));
+        infoVBox.setStyle("-fx-border-color: black");
 
-        Pane root = new Pane();
+        Label info1 = new Label("INSTRUCTION");
+        Label info2 = new Label("Add: Left Click");
+        Label info3 = new Label("Remove: Right Click");
 
+        infoVBox.getChildren().addAll(info1, info2, info3);
+        Pane infoPane = new Pane(infoVBox);
+        infoPane.setPadding(new Insets(10, 10, 10, 10));
 
-        root.addEventFilter(MouseEvent.MOUSE_PRESSED, e -> {
+        // Pane
+        pane.getChildren().addAll(infoPane);
+        infoVBox.setLayoutX(10);
+        infoVBox.setLayoutY(10);
 
-            if( e.isPrimaryButtonDown() && e.isSecondaryButtonDown()) {
-                System.out.println( "Both down");
-            } else if( e.isPrimaryButtonDown()) {
-//                root.getChildren().remove(c);
-                root.getChildren().add(updateCircle(new Circle(0,0,10), e));
-            } else if( e.isSecondaryButtonDown()) {
-                root.getChildren().forEach(circle ->{
-                    if(circle.contains(e.getX(),e.getY())){
-                        //added the ability to set the item to remove so we would not get a concurrent modification exception
-                        setCircleToRemove((Circle) circle);
-                    }
-                });
-                //get the component to be removed and remove it
-                root.getChildren().remove(getCircleToRemove());
+        pane.setOnMouseClicked(e-> {
+            double x = e.getX();
+            double y = e.getY();
+            //so we do not create them on top of each other
+            if (infoPane.contains(x, y)) return;
+            //if the button is primary right click
+            if (e.getButton() == MouseButton.PRIMARY) {
+                Circle c = createCircle(x,y);
+                mCircles.add(c);
+                pane.getChildren().add(c);
+                drawMinBoundingRec();
+            //if the mouse is secondary left clicked
+            } else if (e.getButton() == MouseButton.SECONDARY) {
+                removeCircle(x, y);
+                drawMinBoundingRec();
 
             }
 
         });
-        primaryStage.setScene(new Scene(root, width, height));
-        primaryStage.setTitle("RectangledCircles");
+
+        Scene scene = new Scene(pane, width, height);
+        primaryStage.setScene(scene);
+        primaryStage.setTitle("click to draw circle");
         primaryStage.show();
     }
 
-
-    private Circle updateCircle(Circle c, MouseEvent event) {
-        //give the circle a random different color
+    /**
+     * Create a circle and fill it with random colors
+     * @param x the x value of the location
+     * @param y the y value of the location
+     * @return the created circle
+     */
+    private Circle createCircle(double x, double y) {
+        Circle c = new Circle(x, y, 10);
         c.setFill(new Color(Math.random(), Math.random(), Math.random(), 1));
-        c.setCenterX(event.getX());
-        c.setCenterY(event.getY());
-
         return c;
+    }
+    private void drawMinBoundingRec() {
+
+        removeRec(); // removes old rec
+
+        if (mCircles.size() == 0) return;
+
+        // assume first circle is the current bounding limit
+        Circle top = mCircles.get(0);
+        Circle bottom = mCircles.get(0);
+        Circle right = mCircles.get(0);
+        Circle left = mCircles.get(0);
+        // get lowest x,y and get highest x,y
+        for (Circle c : mCircles) {
+            if (c.getCenterX() < left.getCenterX()) left = c;
+            if (c.getCenterX() > right.getCenterX()) right = c;
+            if (c.getCenterY() > bottom.getCenterY()) bottom = c;
+            if (c.getCenterY() < top.getCenterY()) top = c;
+        }
+        // all circles have the same radius
+        double width = right.getCenterX() - left.getCenterX() +  top.getRadius() * 2;
+        double height = bottom.getCenterY() - top.getCenterY() +  top.getRadius() * 2;
+        double centerX = (right.getCenterX() + left.getCenterX()) / 2;
+        double centerY = (top.getCenterY() + bottom.getCenterY()) / 2;
+
+        Rectangle rec = new Rectangle(centerX - width / 2, centerY - height / 2, width, height);
+        rec.setStroke(Color.BLACK);
+        rec.setFill(Color.TRANSPARENT);
+        pane.getChildren().add(rec);
+
+    }
+    private void removeCircle(double x, double y) {
+        pane.getChildren().forEach(circle-> {
+            if (circle instanceof Circle && circle.contains(x, y)) {
+                setCircleToRemove((Circle) circle);
+
+            }
+        });
+        pane.getChildren().remove(getCircleToRemove());
+        mCircles.remove(getCircleToRemove());
+    }
+
+    private void removeRec(){
+        ObservableList<Node> list = pane.getChildren();
+
+        for (Node c : list) {
+            if (c instanceof Rectangle) {
+                pane.getChildren().remove(c);
+
+                break;
+            }
+        }
+
+    }
+
+    public static void main(String[] args) {
+        Application.launch(args);
     }
 
 }

@@ -1,6 +1,5 @@
 package cs2.assignment2;
 
-import javafx.animation.FadeTransition;
 import javafx.animation.PathTransition;
 import javafx.animation.Timeline;
 import javafx.application.Application;
@@ -8,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.Line;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -30,33 +30,31 @@ public class MovingText extends Application {
         Scene scene = new Scene(pane, width, height);
         double radius = Math.min(width, height) * 0.25;
         Circle c = new Circle(width / 2, height / 2, radius, Color.TRANSPARENT);
+        Line line = new Line();
+        line.setFill(Color.BLACK);//todo fix the line to be follow
+        line.setEndX(50);
+        line.setEndY(100);
         c.setRotate(180);
         c.setStroke(Color.BLACK);
         Text text = new Text("Programming is fun");
 
-        PathTransition pathTrans = new PathTransition(Duration.millis(10000), c, text);
+        PathTransition pathTrans = new PathTransition(Duration.millis(10000), line, text);
         pathTrans.setCycleCount(Timeline.INDEFINITE);
         pathTrans.play();
 
-        FadeTransition fadeTrans = new FadeTransition(Duration.millis(5000), text);
-        fadeTrans.setFromValue(1.0);
-        fadeTrans.setToValue(0);
-        fadeTrans.setAutoReverse(true);
-        fadeTrans.setCycleCount(Timeline.INDEFINITE);
-        fadeTrans.play();
 
         pane.setOnMousePressed(e-> {
             pathTrans.pause();
-            fadeTrans.pause();
+
         });
         pane.setOnMouseReleased(e-> {
             pathTrans.play();
-            fadeTrans.play();
+
         });
 
         pane.getChildren().addAll(text);
         primaryStage.setScene(scene);
-        primaryStage.setTitle("Moving text");
+        primaryStage.setTitle("Programming is fun");
         primaryStage.show();
     }
 
