@@ -24,7 +24,6 @@ import javafx.util.Duration;
  * it reappears from the left. The text freezes when the mouse is pressed and moves again,
  * when the button is released. If the pane in which the text moves is increased in size,
  * the text should adjust and travel the entire horizontal path of the new space.
- * todo implement left to right movement
  */
 public class MovingText extends Application {
     @Override
@@ -57,6 +56,15 @@ public class MovingText extends Application {
             pathTrans.play();
 
         });
+        /**
+         * Listener for the resizing of the window
+         */
+        scene.widthProperty().addListener((observable, oldValue, newValue) -> {
+            pathTrans.stop();//stop the transition so we can restart with the updated path
+
+            pathTrans.play();//play the trastiion
+        });
+
 
         pane.getChildren().addAll(text,line);
         primaryStage.setScene(scene);
