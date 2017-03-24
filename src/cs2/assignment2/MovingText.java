@@ -36,6 +36,7 @@ public class MovingText extends Application {
         Text text = new Text("Programming is fun");
 
         Scene scene = new Scene(pane, 400, 400);
+
         PathTransition pathTrans = new PathTransition(Duration.millis(10000), line, text);
         pathTrans.setCycleCount(Timeline.INDEFINITE);
         pathTrans.play();
