@@ -10,6 +10,11 @@ import javafx.stage.Stage;
 
 /**
  *
+ *  *  *  * * John Jenkins
+ * 03/24/2017
+ * COSC 1337
+ *Instructor: Keith Mott
+ * Programming Assignment 2
  * 2.	Write a Java program named CircleZapper that displays a circle with a radius of 10 pixels,
  * filled with a random color at a random location on the screen. When you click the circle,
  * it disappears and a new random color circle is displayed at another random location (see display below).
@@ -37,39 +42,60 @@ public class CircleZapper extends Application {
             Long startTime = System.currentTimeMillis();
 
             c.setOnMouseClicked(e-> {
-
-                if (circleCount < 19) {
-                    circleCount++;
-                    count.setText(circleCount + "");
-
-                    updateCircle(c);
-                } else {
-
-                    pane.getChildren().remove(c);
-                    pane.getChildren().add(new Text(width / 2, height / 2, "Time spent is milliseconds"));
-                }
+                //method to determine what was clicked and update
+                circleDataFilter(width, height, c, pane, count, startTime);
             });
             primaryStage.setScene(new Scene(pane, width, height));
-            primaryStage.setTitle("Game: eye-hand coordination");
+            primaryStage.setTitle("Circle Zapper");
             primaryStage.show();
         }
 
-        public static void main(String[] args) {
+    /**
+     * This method determines if the game is over by monitoring the count
+     * @param width scene width
+     * @param height scene height
+     * @param c the targeted circle
+     * @param pane the pane for adding and removing circles
+     * @param count the count of circles
+     */
+    private void circleDataFilter(double width, double height, Circle c, Pane pane, Text count, Long startTime) {
+        if (circleCount < 19) {
+            circleCount++;
+            count.setText(circleCount + "");
+
+            updateCircle(c);
+        } else {
+//            when we ar done
+            circleCount++;
+            count.setText(circleCount + "");
+            pane.getChildren().remove(c);
+            Long timeSpent =System.currentTimeMillis() - startTime;
+            pane.getChildren().add(new Text(width / 2, height / 2, "Time spent is milliseconds " + timeSpent));
+        }
+    }
+
+    /**
+     * This method is used to create circles of random color when the pane is clicked
+     * @param c tje cicle obj
+     */
+    private void updateCircle(Circle c) {
+
+        double min = c.getRadius() + 5;
+        double max = 500 - c.getRadius() - 5;
+
+        c.setCenterX((Math.random() * (max - min) + min));
+        max = 500
+                - c.getRadius() - 5;
+        c.setCenterY((Math.random() * (max - min) + min));
+
+        c.setFill(new Color(Math.random(), Math.random(), Math.random(), 1));
+    }
+
+    public static void main(String[] args) {
             Application.launch(args);
         }
 
-        private void updateCircle(Circle c) {
 
-            double min = c.getRadius() + 5;
-            double max = 500 - c.getRadius() - 5;
-
-            c.setCenterX((Math.random() * (max - min) + min));
-            max = 500
-                    - c.getRadius() - 5;
-            c.setCenterY((Math.random() * (max - min) + min));
-
-            c.setFill(new Color(Math.random(), Math.random(), Math.random(), 1));
-        }
 
 
     }

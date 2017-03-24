@@ -12,6 +12,12 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 /**
+ *
+ *  *  *  * * John Jenkins
+ * 03/24/2017
+ * COSC 1337
+ *Instructor: Keith Mott
+ * Programming Assignment 2
  * Created by jjenkins on 3/21/2017.
  * 3.	Write a Java program named MovingText that displays a moving text string.
  * The text string moved from left to right. When it disappears in the right,

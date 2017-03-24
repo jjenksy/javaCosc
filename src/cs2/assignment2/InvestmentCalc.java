@@ -12,6 +12,11 @@ import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 /**
+ *  *  * * John Jenkins
+ * 03/24/2017
+ * COSC 1337
+ *Instructor: Keith Mott
+ * Programming Assignment 2
  * Created by jjenkins on 3/21/2017.
  * 1.	Write a Java program name InvestmentCalc that calculates the future value of an investment at a given interest rate for a specified number of years. The formula for the calculation is:
  futureValue = investmentAmount * (1 + monthlyInterestRate) years*12
@@ -25,7 +30,7 @@ public class InvestmentCalc extends Application {
             LoanInvestCalcPane calcPane = new LoanInvestCalcPane();
 
             primaryStage.setScene(new Scene(calcPane, calcPane.getPrefWidth(), calcPane.getPrefHeight()));
-            primaryStage.setTitle("Simple calculator");
+            primaryStage.setTitle("Investment Calculator");
             primaryStage.show();
         }
 
@@ -35,7 +40,10 @@ public class InvestmentCalc extends Application {
         }
 
 
-        private class LoanInvestCalcPane extends GridPane {
+    /**
+     * Private class to handle build the Loan calc
+     */
+    private class LoanInvestCalcPane extends GridPane {
 
             Label lbInvestAmount = new Label("Invest Amount:");
             TextField tfInvestAmount = new TextField();
@@ -75,7 +83,14 @@ public class InvestmentCalc extends Application {
                 buttons.getChildren().add(btCalc);
                 buttons.setAlignment(Pos.BOTTOM_RIGHT);
                 add(buttons, 1, 4);
-                btCalc.setOnAction(e-> calcFutureValue());
+                btCalc.setOnAction(e-> {
+                    double investmentAmount = Double.parseDouble(tfInvestAmount.getText());
+                    double years = Double.parseDouble(tfNumberOfYears.getText());
+                    double monthInterestRate = Double.parseDouble(tfAnnualInterestRate.getText()) / 12 / 100;
+
+                    double futureValue = investmentAmount * Math.pow(1 + monthInterestRate, years * 12);
+                    tfFutureValue.setText(String.format("$%.2f", futureValue));
+                });
 
                 // Editing TextField settings
                 TextField[] textFields = (TextField[])getArray(
@@ -94,15 +109,6 @@ public class InvestmentCalc extends Application {
                     temp[i] = objects[i];
                 }
                 return temp;
-            }
-
-            public void calcFutureValue() {
-                double investmentAmount = Double.parseDouble(tfInvestAmount.getText());
-                double years = Double.parseDouble(tfNumberOfYears.getText());
-                double monthInterestRate = Double.parseDouble(tfAnnualInterestRate.getText()) / 12 / 100;
-
-                double futureValue = investmentAmount * Math.pow(1 + monthInterestRate, years * 12);
-                tfFutureValue.setText(String.format("$%.2f", futureValue));
             }
         }
     }

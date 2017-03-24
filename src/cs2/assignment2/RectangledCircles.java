@@ -17,6 +17,12 @@ import javafx.stage.Stage;
 import java.util.ArrayList;
 
 /**
+ *
+ *  *  *  * * John Jenkins
+ * 03/24/2017
+ * COSC 1337
+ *Instructor: Keith Mott
+ * Programming Assignment 2
  * Created by jjenkins on 3/21/2017.
  * 4.	Write a Java program named RectangledCircles that enables the user to add and remove points in a two-dimensional plane dynamically. A minimum bounding rectangle is updated as the points are added and removed. Assume that the radius of each point is 10 pixels. Here is an algorithm for the mouse event triggered:
  MousePressed event triggered
