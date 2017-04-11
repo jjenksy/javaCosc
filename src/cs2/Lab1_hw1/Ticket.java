@@ -1,4 +1,4 @@
-package cs2.Lab1_hw1;
+package cs2.lab1_hw1;
 
 /**
  * John Jenkins
