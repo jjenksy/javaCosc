@@ -110,7 +110,7 @@ public class FileSplitter extends Application {
     /**
      * @splitFile this method splits up the chose file
      * @param file the file to split
-     * @param numberOfPieces the number of pieces to split into 
+     * @param numberOfPieces the number of pieces to split into
      * @throws IOException
      */
     public void splitFile(File file, int numberOfPieces) throws IOException {
