@@ -4,6 +4,11 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 
 /**
+ *  *John Jenkins
+ * 04/13/2017
+ * COSC 1337
+ *Instructor: Keith Mott
+ * Programming Assignment 3
  * Created by jjenkins on 4/13/2017.
  * 2.	Write a Java program named ColorChanger that uses scroll bars or sliders to select the color for a text string as shown below.
  * Four horizontal scroll or slider bars are used for selecting the colors: red, green, blue, and opacity percentages.

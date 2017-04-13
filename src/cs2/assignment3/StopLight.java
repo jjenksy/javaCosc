@@ -13,6 +13,11 @@ import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
 /**
+ *  *John Jenkins
+ * 04/13/2017
+ * COSC 1337
+ *Instructor: Keith Mott
+ * Programming Assignment 3
  * Created by jjenkins on 4/13/2017.
  * 1.	Write a Java program named StopLight that simulates a traffic light.
  * 'The program lets the user select one of three lights, red, yellow, or green.

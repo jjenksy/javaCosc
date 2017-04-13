@@ -23,13 +23,13 @@
          <children>
             <Label text="Enter or choose a file:" textAlignment="RIGHT" />
             <Label text="Specify the number of smaller files:" GridPane.rowIndex="1" />
-            <TextField promptText="enter the number of smaller files" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField editable="false" promptText="choose a file" GridPane.columnIndex="1" onMouseClicked="#chooseDirectory"/>
+            <TextField fx:id="numberFiles" promptText="enter the number of smaller files" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="chooseDir" editable="false" promptText="choose a file" GridPane.columnIndex="1" onMouseClicked="#chooseDirectory"/>
          </children>
       </GridPane>
    </center>
    <bottom>
-      <Button mnemonicParsing="false" text="Start" BorderPane.alignment="CENTER" />
+      <Button mnemonicParsing="false" text="Start" BorderPane.alignment="CENTER" onMouseClicked="#submit"/>
    </bottom>
    <top>
       <Label text="If you split a file named temp.txt into 3 smaller files, the  three smaller files are temp.txt1, temp.txt2, and temp.txt.3." BorderPane.alignment="CENTER" />
