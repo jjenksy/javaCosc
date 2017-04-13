@@ -1,6 +1,7 @@
 package cs2.assignment3;
 
 import javafx.application.Application;
+import javafx.event.Event;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -27,8 +28,7 @@ public class FileSplitter extends Application {
         primaryStage.setScene(new Scene(root, 400, 200));
         primaryStage.show();
     }
-
-
+    
 
 
     public void splitFile(File file, int numberOfPieces) throws IOException {
@@ -65,5 +65,10 @@ public class FileSplitter extends Application {
 
     public static void main(String[] args) {
         launch(args);
+    }
+
+
+    public void chooseDirectory(Event event) {
+        System.out.println(event);
     }
 }

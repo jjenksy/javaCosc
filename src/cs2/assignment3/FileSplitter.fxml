@@ -9,7 +9,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cs2.assignment3.FileSplitter">
    <center>
       <GridPane BorderPane.alignment="CENTER">
         <columnConstraints>
@@ -24,7 +24,7 @@
             <Label text="Enter or choose a file:" textAlignment="RIGHT" />
             <Label text="Specify the number of smaller files:" GridPane.rowIndex="1" />
             <TextField promptText="enter the number of smaller files" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField editable="false" promptText="choose a file" GridPane.columnIndex="1" />
+            <TextField editable="false" promptText="choose a file" GridPane.columnIndex="1" onMouseClicked="#chooseDirectory"/>
          </children>
       </GridPane>
    </center>
