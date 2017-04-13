@@ -5,6 +5,7 @@ import javafx.event.Event;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -31,6 +32,7 @@ public class FileSplitter extends Application {
     private File selectedFile; //the selected fie
     private Stage stage;//the var to hold my stage
 
+    //setter and getters
     public Stage getStage() {
         return stage;
     }
@@ -51,13 +53,16 @@ public class FileSplitter extends Application {
     public void start(Stage primaryStage) throws Exception{
         setStage(primaryStage);//set the primary stage so we can use it all over the place
         //using an fxml file to layout the pane
-        Parent root = FXMLLoader.load(getClass().getResource("FileSplitter.fxml"));
-        primaryStage.setTitle("File Splitter");
+        Parent root = FXMLLoader.load(getClass().getResource("FileSplitter.fxml"));//the fxml file to use to set up the layout
+        primaryStage.setTitle("File Splitter");//title
         primaryStage.setScene(new Scene(root, 400, 200));
         primaryStage.show();
     }
 
-
+    /**
+     * @chooseDirectory is the callaback funtion that is used when the choose directory text field is clicked
+     * @param event the event source object
+     */
     public void chooseDirectory(Event event) {
         try {
             setSelectedFile(getFile());
@@ -72,21 +77,42 @@ public class FileSplitter extends Application {
      * @param event
      */
     public void submit(Event event) {
-        System.out.println(numberFiles.getText());
         try {
             splitFile(getSelectedFile(),Integer.parseInt(numberFiles.getText()));
         } catch (IOException e) {
             e.printStackTrace();
+            //show a message if fails
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Failed!");
+            alert.setHeaderText("Request failed.");
+            alert.setContentText(e.getMessage());
+            alert.showAndWait();
         }
-
+        //show a message if completed
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Success!");
+        alert.setHeaderText("Request complete.");
+        alert.setContentText("The new files were created successfully!!");
+        alert.showAndWait();
     }
 
+    /**
+     * @getFile Opens a dialog on the current stage to access the filechooser
+     * @return the chosen file
+     * @throws Exception
+     */
     public File getFile() throws Exception {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Open Resource File");
         return fileChooser.showOpenDialog(getStage());
     }
 
+    /**
+     * @splitFile this method splits up the chose file
+     * @param file the file to split
+     * @param numberOfPieces the number of pieces to split into 
+     * @throws IOException
+     */
     public void splitFile(File file, int numberOfPieces) throws IOException {
 
         // Create an array of random access files
