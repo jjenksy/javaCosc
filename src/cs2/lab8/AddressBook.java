@@ -5,19 +5,22 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 import java.io.*;
-import java.util.ArrayList;
 
 /**
+ *  *John Jenkins
+ * 04/09/2017
+ * COSC 1174-048
+ *Instructor: Kami Makki, Ph.D.
+ * Lab 8 Hw8
+ * Due Date: Sunday, April 9, 2017
  * Created by jenksy on 4/8/17.
  * (Address book) Write a program that stores, retrieves, adds, and updates addresses as
  shown in Figure 17.20. Use a fixed-length string for storing each attribute in the address. Use
@@ -25,7 +28,7 @@ import java.util.ArrayList;
  */
 public class AddressBook extends Application {
 
-    protected AddressBookPane pane = new AddressBookPane();
+    protected AddressPane pane = new AddressPane();
     final int NAME = 32;
     final int STREET = 32;
     final int CITY = 20;
@@ -36,117 +39,102 @@ public class AddressBook extends Application {
     @Override // Override the start method in the Application class
     public void start(Stage primaryStage) {
         // Create and register handlers
-        pane.btAdd.setOnAction(e -> add());
-        pane.btFirst.setOnAction(e -> first());
-        pane.btNext.setOnAction(e -> next());
-        pane.btPrevious.setOnAction(e -> previous());
-        pane.btLast.setOnAction(e -> last());
-        pane.btUpdate.setOnAction(e -> update());
+        pane.btAdd.setOnAction(e -> {
+            //write to the file
+            try (RandomAccessFile inout = new RandomAccessFile("AddressBook.dat", "rw")) {
+                inout.seek(inout.length());
+                write(inout);
+            }
+            catch (FileNotFoundException ex) {}
+            catch (IOException ex) {}
+            catch (IndexOutOfBoundsException ex) {}
+        });
+        pane.btFirst.setOnAction(e -> {
+            //read the button from the file
+            try ( // Create a random access file
+                  RandomAccessFile inout =
+                          new RandomAccessFile("AddressBook.dat", "rw");
+            ) {
+                if (inout.length() > 0) {
+                    inout.seek(0);
+                    read(inout);
+                    System.out.println("Reading address #1");
+                    count = 1;
+                }
+                else {
+                    System.out.println("Address is empty!");
+                }
+            }
+            catch (IOException ex) {}
+        });
+        pane.btNext.setOnAction(e -> {
+            /** Read the next Address from the file */
+            try ( // Create a random access file
+                  RandomAccessFile inout =
+                          new RandomAccessFile("AddressBook.dat", "rw");
+            ) {
+                if (count * 91 < inout.length()) {
+                    inout.seek(count * 91);
+                    read(inout);
+                    count++;
+                    System.out.println("Reading address #" + count);
+                }
+                else {
+                    System.out.println("End of file!");
+                }
+            }
+            catch (IOException ex) {}
+        });
+        pane.btPrevious.setOnAction(e -> {
+            /** Read the previous Address from the file */
+            try ( // Create a random access file
+                  RandomAccessFile inout =
+                          new RandomAccessFile("AddressBook.dat", "rw");
+            ) {
+                if (count > 1)
+                    count--;
+                else
+                    count = 1;
+                inout.seek((count * 91) - 91);
+                read(inout);
+                System.out.println("Reading address #" + count);
+            }
+            catch (IOException ex) {}
+        });
+        pane.btLast.setOnAction(e -> {
+            /** Read last address from file */
+            try ( // Create a random access file
+                  RandomAccessFile inout =
+                          new RandomAccessFile("AddressBook.dat", "rw");
+            ) {
+                count = ((int)inout.length()) / 91;
+                inout.seek((count * 91) - 91);
+                read(inout);
+                System.out.println("Reading address #" + count);
+            }
+            catch (IOException ex) {}
+        });
+        pane.btUpdate.setOnAction(e -> {
+            /** Edit and address in file */
+            try ( // Create a random access file
+                  RandomAccessFile inout =
+                          new RandomAccessFile("AddressBook.dat", "rw");
+            ) {
+                inout.seek(count * 91 - 91);
+                write(inout);
+            }
+            catch (FileNotFoundException ex) {}
+            catch (IOException ex) {}
+        });
 
         // Create a scene and place it in the stage
-        Scene scene = new Scene(pane, 360, 130);
-        primaryStage.setTitle("Exericse_17_09"); // Set the stage title
+        Scene scene = new Scene(pane, 400, 200);
+        primaryStage.setTitle("Address Book"); // Set the stage title
         primaryStage.setScene(scene); // Place the scene in the stage
         primaryStage.show(); // Display the stage
     }
 
-    /** Write an address to file */
-    private void add() {
-        try ( // Create a random access file
-              RandomAccessFile inout =
-                      new RandomAccessFile("AddressBook.dat", "rw");
-        ) {
-            inout.seek(inout.length());
-            write(inout);
-        }
-        catch (FileNotFoundException ex) {}
-        catch (IOException ex) {}
-        catch (IndexOutOfBoundsException ex) {}
-    }
-
-    /** Read the first address from the file */
-    private void first() {
-        try ( // Create a random access file
-              RandomAccessFile inout =
-                      new RandomAccessFile("AddressBook.dat", "rw");
-        ) {
-            if (inout.length() > 0) {
-                inout.seek(0);
-                read(inout);
-                System.out.println("Reading address #1");
-                count = 1;
-            }
-            else {
-                System.out.println("Address is empty!");
-            }
-        }
-        catch (IOException ex) {}
-    }
-
-    /** Read the next Address from the file */
-    private void next() {
-        try ( // Create a random access file
-              RandomAccessFile inout =
-                      new RandomAccessFile("AddressBook.dat", "rw");
-        ) {
-            if (count * 91 < inout.length()) {
-                inout.seek(count * 91);
-                read(inout);
-                count++;
-                System.out.println("Reading address #" + count);
-            }
-            else {
-                System.out.println("End of file!");
-            }
-        }
-        catch (IOException ex) {}
-    }
-
-    /** Read the previous Address from the file */
-    private void previous() {
-        try ( // Create a random access file
-              RandomAccessFile inout =
-                      new RandomAccessFile("AddressBook.dat", "rw");
-        ) {
-            if (count > 1)
-                count--;
-            else
-                count = 1;
-            inout.seek((count * 91) - 91);
-            read(inout);
-            System.out.println("Reading address #" + count);
-        }
-        catch (IOException ex) {}
-    }
-
-    /** Read last address from file */
-    private void last() {
-        try ( // Create a random access file
-              RandomAccessFile inout =
-                      new RandomAccessFile("AddressBook.dat", "rw");
-        ) {
-            count = ((int)inout.length()) / 91;
-            inout.seek((count * 91) - 91);
-            read(inout);
-            System.out.println("Reading address #" + count);
-        }
-        catch (IOException ex) {}
-    }
-
-    /** Edit and address in file */
-    private void update() {
-        try ( // Create a random access file
-              RandomAccessFile inout =
-                      new RandomAccessFile("AddressBook.dat", "rw");
-        ) {
-            inout.seek(count * 91 - 91);
-            write(inout);
-        }
-        catch (FileNotFoundException ex) {}
-        catch (IOException ex) {}
-    }
-
-    /** Write addreass to file */
+    /** Write address to file */
     private void write(RandomAccessFile inout) throws IOException {
         inout.write(fixedLength(pane.tfName.getText().getBytes(), NAME));
         inout.write(fixedLength(pane.tfStreet.getText().getBytes(), STREET));
@@ -189,7 +177,7 @@ public class AddressBook extends Application {
         return b;
     }
 
-    class AddressBookPane extends BorderPane {
+    class AddressPane extends BorderPane {
         protected TextField tfName = new TextField();
         protected TextField tfStreet = new TextField();
         protected TextField tfCity = new TextField();
@@ -204,7 +192,7 @@ public class AddressBook extends Application {
         private FlowPane paneForInfo = new FlowPane(5, 5);
         private HBox paneForButtons = new HBox(5);
 
-        public AddressBookPane() {
+        public AddressPane() {
             drawAddressBook();
         }
 
