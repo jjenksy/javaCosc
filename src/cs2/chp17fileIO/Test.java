@@ -14,6 +14,11 @@ public class Test {
             DataInputStream input2 = new DataInputStream(
                     new BufferedInputStream(new FileInputStream("t.dat")));
 
+            //uses the random access file constructor
+            RandomAccessFile raf = new RandomAccessFile("address.dat","rw");
+            //uses the DataOutputStream wrapped on FileOutPutStream
+            DataOutputStream dos = new DataOutputStream(new FileOutputStream("address.dat"));
+
         }
     }
 }
