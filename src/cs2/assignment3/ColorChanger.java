@@ -86,15 +86,6 @@ public class ColorChanger extends Application {
 
     }
 
-//    private Color getColor() {
-//        // r g b o
-//        double[] rgb = new double[4];
-//        for (int i = 0; i < rgb.length; i++) {
-////            rgb[i] = scrollBars[i].getValue();
-//        }
-//        return Color.rgb((int)rgb[0], (int)rgb[1], (int)rgb[2], rgb[3]);
-//    }
-
 
     public static void main(String[] args) {
         launch(args);
