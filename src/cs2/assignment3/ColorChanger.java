@@ -92,6 +92,9 @@ public class ColorChanger extends Application {
     }
 }
 
+/**
+ * Inner class to hold all the curret color and opacity
+ */
 class ColorOpacityScale{
 
     private int red;
