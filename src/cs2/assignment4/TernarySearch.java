@@ -26,12 +26,21 @@ public class TernarySearch {
     }
 
     private static int ternarySearch(int[] list, int key, int low, int high) {
-        if (low > high) // The list has been exhausted without a match
+        // The list has been exhausted without a match
+        if (low > high){
             return -low - 1;
-        int mid = (low + high) / 2; if (key < list[mid])
-            return ternarySearch(list, key, low, mid - 1); else if (key == list[mid])
-            return mid; else
+        }
+        int mid = (low + high) / 2;
+        if (key < list[mid]){
+            return ternarySearch(list, key, low, mid - 1);
+        }
+        else if (key == list[mid]){
+            return mid;
+        }
+        else {
             return ternarySearch(list, key, mid + 1, high);
+        }
+
     }
 
 //    public static <E extends Comparable<E>> int ternarySearch(E[] list, E key){
