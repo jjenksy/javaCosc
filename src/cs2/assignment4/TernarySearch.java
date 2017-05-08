@@ -1,5 +1,10 @@
 package cs2.assignment4;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * Created by johnjenkins on 5/4/17.
  * Problem 1
@@ -20,25 +25,50 @@ package cs2.assignment4;
 public class TernarySearch {
 
     public static int ternarySearch(int[] list, int key) {
-        int low = 0;
-        int high = list.length - 1;
-        return ternarySearch(list, key, low, high);
+        int start = 0;
+        int end = list.length - 1;
+
+
+        return ternarySearch(list, key, start, end);
     }
 
-    private static int ternarySearch(int[] list, int key, int low, int high) {
+    private static int ternarySearch(int[] list, int key, int start, int end) {
+        int dif = end - start;
         // The list has been exhausted without a match
-        if (low > high){
-            return -low - 1;
-        }
-        int mid = (low + high) / 2;
-        if (key < list[mid]){
-            return ternarySearch(list, key, low, mid - 1);
-        }
-        else if (key == list[mid]){
-            return mid;
-        }
-        else {
-            return ternarySearch(list, key, mid + 1, high);
+        //terminating conditions
+        if (start > end || key < list[start] || key > list[end]) return -1;
+        if (dif <= 3) {
+            // perform a linear search
+            for (int i = start; i <= end; i++)
+                if (list[i] == key)
+                    return i;
+            return -1;
+        } else {
+            int one_third = dif / 3;
+            // check if the element is this range
+            if (key >= list[start] && key <= list[start + one_third]) {
+                //check if the element is found
+                if (key == list[start]) return start;
+                if (key == list[start + one_third]) return start + one_third;
+                // recursion
+                return ternarySearch(list, key, start + 1, start + one_third - 1);
+            } else
+                // check if the element is this range
+                if (key >= list[start + one_third] && key <= list[end - one_third]) {
+                    //check if the element is found
+                    if (key == list[start + one_third]) return start + one_third;
+                    if (key == list[end - one_third]) return end - one_third;
+                    // recursion
+                    return ternarySearch(list, key, start + one_third + 1, end - one_third - 1);
+                } else
+                //the element is in the final range
+                {
+                    //check if the element is found
+                    if (key == list[end - one_third]) return end - one_third;
+                    if (key == list[end]) return end;
+                    // recursion
+                    return ternarySearch(list, key, end - one_third + 1, end - 1);
+                }
         }
 
     }
@@ -47,4 +77,11 @@ public class TernarySearch {
 //
 //        return 0;
 //    }
+
+    public static void main(String[] args){
+        int[] test = {0,1,2,3,4,5,6,7,8,9,0,778,9,7878,990,7080,55345,234234,5435,45435345,643634,12234324,644363,2523532,6436436,643643,534543636,3464334};
+
+
+        System.out.println(ternarySearch(test,9));
+    }
 }
