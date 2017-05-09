@@ -6,6 +6,10 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
+ *  * *John Jenkins
+ * 05/09/2017
+ * COSC 1337
+ *Instructor: Keith Mott
  * Created by johnjenkins on 5/4/17.
  * Problem 1
  * Write a ternarySearch() method using recursion. A ternary search is similar to a binary search,
