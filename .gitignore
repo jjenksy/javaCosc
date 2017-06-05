@@ -1,0 +1,13 @@
+# Created by .ignore support plugin (hsz.mobi)
+.DS_Store
+.idea/inspectionProfiles/
+.idea/workspace.xml
+AddressBook.dat
+out/
+src/.DS_Store
+src/cs2/.DS_Store
+src/cs2/LectureAssignments/.DS_Store
+src/cs2/assignment2/.DS_Store
+src/cs2/lab7/.DS_Store
+t.dat
+t.txt

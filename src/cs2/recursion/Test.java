@@ -8,14 +8,15 @@ import java.util.Scanner;
  */
 public class Test {
     public static void main(String[] args) {
-        System.out.println(
-                "Sum is " + xMethod(5));
+        String str1 = "james";
+        String str2 = "james";
+        String str3 = new String("james");
+
+        System.out.println(str1==str2);
+        System.out.println(str1==str3);
+        System.out.println(str1.equals(str2));
+        System.out.println(str1.equals(str3));
     }
-    public static int xMethod(int n) {
-        if (n == 1)
-            return 1;
-        else
-            return n + xMethod(n - 1);
-    }
+
 }
 
