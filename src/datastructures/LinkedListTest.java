@@ -5,7 +5,7 @@ import java.util.Collections;
 /**
  * Created by johnjenkins on 6/5/17.
  */
-public class LinkedList<T> {
+public class LinkedListTest<T> {
 
     //head of the Linked list
     private LinkedListNode<T> Head;
