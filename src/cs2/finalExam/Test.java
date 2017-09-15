@@ -1,14 +1,8 @@
 package cs2.finalExam;
 
-import cs2.lab5.GeometricObject;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 
-import java.io.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.Scanner;
 
 /**
  * Created by jenksy on 5/9/17.
