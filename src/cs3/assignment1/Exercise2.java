@@ -2,6 +2,7 @@ package cs3.assignment1;
 
 /**
  * Created by jenksy on 9/14/17.
+ * Complete the following Java method that returns the maximum element of an array:
  */
 public class Exercise2{
     public static void main(String[] args) {
@@ -33,7 +34,16 @@ public class Exercise2{
     }
     public static <E extends Comparable<E>> E max(E[] list) {
         // Your code here!
-        //todo implement code
-        return null;
+        //set the max value to the first index in the array
+        E max = list[0];
+        //itterate through the list
+        for (int i = 0; i < list.length; i++) {
+            //check using the compare to method to see if current index is greater then max
+            if(list[i].compareTo(max)>0){
+                //set max to new index when statement is true
+                max = list[i];
+            }
+        }
+        return max;
     }
 }

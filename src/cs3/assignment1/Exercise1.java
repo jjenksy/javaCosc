@@ -1,7 +1,9 @@
 package cs3.assignment1;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by jenksy on 9/14/17.
@@ -21,19 +23,10 @@ public class Exercise1 {
         System.out.print(newList.toString());
     }
     public static <E> ArrayList<E> removeDuplicates(ArrayList<E> list) {
-        // make a copy of the array
-        ArrayList<E> newList = new ArrayList<>(list);
-        ArrayList<E> nonDuplicate = new ArrayList<>();
-        //outer list to check each
-        for (E check:list) {
-            for (E toCheck:newList) {
-                if (!check.equals(toCheck)){
-                    nonDuplicate.add(check);
-                }
-            }
-        }
-        //todo implement code
-        return nonDuplicate;
+        //create a HashSet out of th list. Since Sets contains no duplicates it will remove them
+        Set<E> set = new HashSet<>(list);
+        //return a new arraylist with from the set
+        return new ArrayList<>(set);
     }
 
 }
