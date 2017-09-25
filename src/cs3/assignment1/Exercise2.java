@@ -1,6 +1,8 @@
 package cs3.assignment1;
 
 /**
+ *  **Instructor: Jing Zhang, PhD
+ * Programming Assignment 1 Exercise2
  * Created by jenksy on 9/14/17.
  * Complete the following Java method that returns the maximum element of an array:
  */

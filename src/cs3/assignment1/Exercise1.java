@@ -2,14 +2,15 @@ package cs3.assignment1;
 
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 /**
+ **Instructor: Jing Zhang, PhD
+ * Programming Assignment 1 Exercise1
  * Created by jenksy on 9/14/17.
- *
  * Given an ArrayList, write a Java method that returns a new ArrayList which
  * contains only the non-duplicate elements from the original list.
+ *
  */
 public class Exercise1 {
     public static void main(String[] args) {
