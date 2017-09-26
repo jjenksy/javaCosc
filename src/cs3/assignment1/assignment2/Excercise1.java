@@ -3,10 +3,7 @@ package cs3.assignment1.assignment2;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.PriorityQueue;
-import java.util.stream.Collectors;
+import java.util.Arrays;
 import java.util.stream.Stream;
 
 /**
@@ -16,7 +13,7 @@ import java.util.stream.Stream;
  argument.
  */
 public class Excercise1 {
-
+    public static int test = 0;
     public static void main (String [] args){
         if(args.length<1){
             System.exit(1);
@@ -36,14 +33,16 @@ public class Excercise1 {
             } catch (IOException e){
                 System.out.println(e.getMessage());
             }
-
-        List<String> noNumbers = fileContents.filter(line-> getValidWords(line)).collect(Collectors.toList());
-
-        System.out.println(noNumbers);
+        //get the words from the line sorted
+        Stream<String> words = fileContents.map(line -> line.split("[\\s]+")).flatMap(Arrays::stream)
+                .sorted();
+            //filter out any words that begin with numbers
+         Stream<String> noNumbers = words.filter(val -> getValidWords(val));
+        noNumbers.forEach(System.out::println);
     }
 
     public static Boolean getValidWords(String val) {
-        //todo implement check
-        return false;
+        return !Character.isDigit(val.charAt(0));
+
     }
 }
