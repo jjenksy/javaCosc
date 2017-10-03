@@ -4,6 +4,9 @@ import java.util.Arrays;
 import java.util.PriorityQueue;
 
 /**
+ *  * **Instructor: Jing Zhang, PhD
+ * Programming Assignment 2 Exercise2
+ * Created by jenksy on 9/24/17.
  * Created by jenksy on 9/24/17.
  * Write a Java program that creates two priority queues, {"George", "Jim", "John", "Blake",
  "Kevin", "Michael"} and {"George", "Katie", "Kevin", "Michelle", "Ryan"}, and find their union,
@@ -24,7 +27,7 @@ public class Excercise2 {
                 union.add(s);
             }
         }
-        System.out.println("Union set: " + union);
+        System.out.println("Union : " + union);
 
         PriorityQueue<String> difference = new PriorityQueue<>(priorityQueue1);
         difference.removeAll(priorityQueue2);

@@ -7,6 +7,9 @@ import java.util.Arrays;
 import java.util.stream.Stream;
 
 /**
+ * **Instructor: Jing Zhang, PhD
+ * Programming Assignment 2 Exercise1
+ * Created by jenksy on 9/24/17.
  * Created by jenksy on 9/24/17.
  * Write a Java program that reads words from a text file and displays all the words (duplicates allowed)
  in ascending alphabetical order. The words must start with a letter. The text file is passed as a command-line
