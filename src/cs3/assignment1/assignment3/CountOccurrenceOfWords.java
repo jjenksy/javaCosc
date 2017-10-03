@@ -1,6 +1,8 @@
 package cs3.assignment1.assignment3;
 
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -20,7 +22,8 @@ public class CountOccurrenceOfWords {
 
         // Create a TreeMap to hold words as key and count as value
         Map<String, Integer> map = new TreeMap<>();
-
+        //list if occurances
+        ArrayList<WordOccurrence> wordOccurrences = new ArrayList<>();
         String[] words = text.split("[\\s+\\p{P}]");
         for (int i = 0; i < words.length; i++) {
             String key = words[i].toLowerCase();
@@ -37,15 +40,48 @@ public class CountOccurrenceOfWords {
             }
         }
 
+        ArrayList<WordOccurrence> list = new ArrayList<>();
         // Display key and value for each entry
         map.forEach((k, v) -> System.out.println(k + "\t" + v));
+        Collections.sort(list);
+        list.forEach((word) -> System.out.println(word.getWord() + "\t" + word.getCount()));
     }
 }
 
-class WordOccurrence implements Comparable<>{
+class WordOccurrence implements Comparable<WordOccurrence> {
+
+    private String word;
+    private int count;
+
+    public WordOccurrence(String word, int count) {
+        this.word = word;
+        this.count = count;
+    }
+
+    public String getWord() {
+        return word;
+    }
+
+    public void setWord(String word) {
+        this.word = word;
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
+
 
     @Override
-    public int compareTo(Object o) {
-        return 0;
+    public int compareTo(WordOccurrence o) {
+        if (o.count > count)
+            return -1;
+        else if (o.count < count)
+            return 1;
+        else
+            return 0;
     }
 }
