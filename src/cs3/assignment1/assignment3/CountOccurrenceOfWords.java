@@ -7,6 +7,9 @@ import java.util.Map;
 import java.util.TreeMap;
 
 /**
+ *  *  Instructor: Jing Zhang, PhD
+ * Programming Assignment 3 Exercise1
+ * Created by jenksy on 10/01/17.
  * (http://www.cs.armstrong.edu/liang/intro10e/html/CountOccurrenceOfWords.html) to display the words in
  ascending order of occurrence counts.
  (Hint: Create a class named WordOccurrence that implements the Comparable interface. The class contains two
@@ -23,7 +26,6 @@ public class CountOccurrenceOfWords {
         // Create a TreeMap to hold words as key and count as value
         Map<String, Integer> map = new TreeMap<>();
         //list if occurances
-        ArrayList<WordOccurrence> wordOccurrences = new ArrayList<>();
         String[] words = text.split("[\\s+\\p{P}]");
         for (int i = 0; i < words.length; i++) {
             String key = words[i].toLowerCase();
