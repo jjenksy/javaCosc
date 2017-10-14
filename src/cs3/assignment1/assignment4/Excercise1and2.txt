@@ -1,0 +1,13 @@
+Exercise 1. Please show the big O notation of the recurrence relation below (please show detailed steps
+for full credits):
+T(n) = T(n-1) + n
+Answer:
+O(n)
+
+Exercise 2. What is the big O notation of the following program (please show detailed steps for full
+credits):
+for (int i=n; i>0; i-=2)
+for (int j=i; j<n; j++)
+ {//other constant time statements ;}
+ Answer:
+T(n) - T(0) = 1 + 2 + ... + (n-1) + n = n * (n+1) / 2 = O(n ^ 2)
