@@ -2,6 +2,9 @@ package cs3.assignment1.assignment4;
 
 
 /**
+ *  Instructor: Jing Zhang, PhD
+ * Programming Assignment 3 Exercise1
+ * Created by jenksy on 10/17/17.
  * Find the non-recursive version of the following recursive function. Which version is better?
  static long tough(int x, int y) {
  if (x < y) return tough(y, x);
@@ -21,9 +24,6 @@ public class Excercise4 {
         System.out.println(tough(0, 100000));
     }
     // divide and conquer approach to solve problem
-// by diving a big problem into smaller subproblem
-// but there will be repetetion in this case as
-// same values are coputed multiple time during recursion
     static long tough(int x, int y)
     {
         if (x < y) return tough(y,x);

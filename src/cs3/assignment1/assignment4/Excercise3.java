@@ -7,6 +7,9 @@ import java.util.Scanner;
 
 
 /**
+ *  *  Instructor: Jing Zhang, PhD
+ * Programming Assignment 3 Exercise1
+ * Created by jenksy on 10/07/17.
  * Exercise 3. Write a program that prompts the user to enter a string and displays the maximum
  consecutive increasingly ordered substring. For example, if the input string is "abcabcdgabmnsxy", then
  the maximum increasingly ordered substring is "abmnsxy". Analyze the time complexity of your
@@ -17,48 +20,49 @@ import java.util.Scanner;
 public class Excercise3 {
     public static void main(String[] args)
     {
-        Map<String,Integer> stringMap = new HashMap<String,Integer>();
+        Map<String,Integer> stringMap = new HashMap<>();
         Scanner scan = new Scanner(System.in);
     /* here we take input string from user */
-        System.out.print("Enter the String\n");
-        String s = scan.next();
-        String t="";
+        System.out.println("Enter the String\n");
+        String input = scan.next();
+        String value="";
         int len=0;
-        for(int i=0;i< s.length()-1;i++)
+        for(int i=0;i< input.length()-1;i++)
         {
-            if((s.charAt(i+1)- s.charAt(i))> 0)
+            if((input.charAt(i+1)- input.charAt(i))> 0)
             {
-                t = t + s.charAt(i) ;
+                value = value + input.charAt(i) ;
                 len=len+1;
             }
             else
             {
-                t = t+ s.charAt(i);
+                value = value+ input.charAt(i);
                 len=len+1;
-                stringMap.put(t,len); /* here we insert substrings with respect to their lengths in hashmap*/
+                //insert the substring
+                stringMap.put(value,len);
                 len=0;
-                t="";
+                value="";
             }
-            if(i == s.length()-2)
+            if(i == input.length()-2)
             {
-                if(s.charAt(s.length()-1)- s.charAt(s.length()-2) > 0)
+                if(input.charAt(input.length()-1)- input.charAt(input.length()-2) > 0)
                 {
-                    t=t+s.charAt(i+1);
+                    value=value+input.charAt(i+1);
                     len=len+1;
-                    stringMap.put(t,len);
+                    stringMap.put(value,len);
                 }
                 else
                 {
-                    t="";len=0;
-                    t=t+s.charAt(i+1);
-                    stringMap.put(t,len);
+                    value="";len=0;
+                    value=value+input.charAt(i+1);
+                    stringMap.put(value,len);
                 }
             }
         }
-        int maxValueInMap=(Collections.max(stringMap.values())); /* This will return max value in the Hashmap */
+        int maxValueInMap=(Collections.max(stringMap.values()));
         for (java.util.Map.Entry<String, Integer> entry : stringMap.entrySet()) {
             if (entry.getValue()==maxValueInMap) {
-                System.out.println(entry.getKey());     /* Print that maximum increasingly ordered substring */
+                System.out.println(entry.getKey());
             }
         }
     }
