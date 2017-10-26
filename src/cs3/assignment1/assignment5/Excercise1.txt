@@ -1,0 +1,55 @@
+Given the array [2 5 -1 9 4 0 -3 7 3 6 -6], describe the steps for the following sorting
+algorithms:
+a) Merge sort;
+b) Quick sort;
+c) Heap sort.
+
+a)
+
+array [2 5 -1 9 4 0 -3 7 3 6 -6]
+
+Merge Sort - Merge Sort is a Divide and Conquer algorithm. It divides input array in two halves, calls itself for the two halves and then merges the two sorted halves
+
+So according to merge sort we will divide given array into two halfs whose size can be differ by atmost 1
+
+We will sort those two arrays and then merge them to get the final array
+
+L = [ 2 5 -1 9 4 0] , R =[-3 7 3 6 -6]
+
+After Sorting L and R by using same procedure which we are using for the bigger array we get
+
+L = [-1 0 2 4 5 9] and R = [-6 -3 3 6 7]
+
+after merging we get
+
+array = [-6 -3 -1 0 2 3 4 5 6 7 9]
+
+b) quick sort
+
+QuickSort is a Divide and Conquer algorithm. It picks an element as pivot and partitions the given array around the picked pivot. Then sort both the array parts separately using the quick sort algorithm.
+
+here let the initial pivot be 3 then after partitioning we get
+
+array = [2 -1 0 -3 -6 3 5 9 4 7 6]
+
+pivot = -3
+
+sort both the array parts which are left and right side of the pivot using the same procedure that we have used for the bigger array
+
+Finally after sorting both these parts the whole array will get sorted.
+
+c) Heap sort
+
+Heap sort is a comparison based sorting technique based on Binary Heap data structure. It is similar to selection sort where we first find the maximum element and place the maximum element at the end.
+
+here we form max heap so that we can find maximum element in O(1) time
+
+We will heapify the array first in O(n) time and then at every find the max element and will put it at the last of the array.
+
+At every stem we update heap accordingly in O(logn) time .
+
+so for the given example after the first step maximum element 9 will lie at the end of the array
+
+after second step 7 will lie at the second last position and so on
+
+The overall procedure takes O(nlogn) time.
