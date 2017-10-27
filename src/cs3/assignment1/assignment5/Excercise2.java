@@ -1,8 +1,9 @@
 package cs3.assignment1.assignment5;
 
-import java.util.Arrays;
-
 /**
+ * Instructor: Jing Zhang, PhD
+ * Programming Assignment 5 Exercise2
+ * Created by John Jenkins on 10/20/17.
  * Exercise 2. Please generate an array with 12 elements, which is the worst case for the first iteration of
  QUICKSORT algorithm and then is the best case for the second iteration of QUICKSORT algorithm
  (The first element is used as Pivot). Please explain why your answer is the worst case and the best case
@@ -12,12 +13,13 @@ public class Excercise2 {
 
     static void quickSort(int[] arr,int start,int last)
     {
-        int i=start+1,j=last,temp;
+        int i=start+1,
+                j=last,
+                temp;
         if(i>j)
             return;
         while(i<=j)
         {
-            System.out.println("sorting");
             if(arr[i]<arr[start])
             {
                 i++;

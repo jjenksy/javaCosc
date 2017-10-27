@@ -6,6 +6,9 @@ import java.util.Arrays;
 import static cs3.assignment1.assignment5.Radix.getMax;
 
 /**
+ * Instructor: Jing Zhang, PhD
+ * Programming Assignment 3 Exercise3
+ * Created by John Jenkins on 10/20/17.
  * Exercise 3. Given the following list of positive integers, use radix sort to sort them in an increasing
  order: 439 45 234 91 649 932 47 829 48 732 843 236 727 462 828 999 619 503 290 83 439 545 9 475
  683 889 497
