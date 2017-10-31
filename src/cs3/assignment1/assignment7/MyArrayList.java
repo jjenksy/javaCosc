@@ -3,6 +3,18 @@ package cs3.assignment1.assignment7;
 import java.util.Arrays;
 import java.util.Iterator;
 
+/**
+ * /** Adds the elements in otherList to this list.
+ * Returns true if this list changed as a result of the call
+ * public boolean addAll(MyList<E> otherList);
+/** Removes all the elements in otherList from this list
+ * Returns true if this list changed as a result of the call
+ * public boolean removeAll(MyList<E> otherList);
+/** Retains the elements in this list that are also in otherList
+ * Returns true if this list changed as a result of the call
+ * public boolean retainAll(MyList<E> otherList);
+ * @param <E>
+ */
 public class MyArrayList <E> extends MyAbstractList<E> {
 
     public static final int INITIAL_CAPACITY = 16; //initial capacity
@@ -123,6 +135,50 @@ public class MyArrayList <E> extends MyAbstractList<E> {
             System.arraycopy(data, 0, newData, 0, size);
             data = newData;
         }
+    }
+
+    /** Adds the elements in otherList to this list.
+     * Returns true if this list changed as a result of the call */
+    public boolean addAll(MyList<E> otherList) {
+        for (int i = 0; i < otherList.size(); i++)
+            add(otherList.get(i));
+
+        if (otherList.size() > 0)
+            return true;
+        else
+            return false;
+    }
+
+    /**
+     * Removes all the elements in otherList from this list Returns true if this
+     * list changed as a result of the call
+     */
+    public boolean removeAll(MyList<E> otherList) {
+        boolean result = false;
+        for (E e : otherList) {
+            while (remove(e)) {
+                if (!result) {
+                    result = true;
+                }
+            }
+        }
+        return result;
+    }
+
+    /**
+     * Retains the elements in this list that are also in otherList Returns true
+     * if this list changed as a result of the call
+     */
+    public boolean retainAll(MyList<E> otherList) {
+        boolean result = false;
+        for (int i = 0; i < size(); i++) {
+            E e = get(i);
+            if (otherList.indexOf(e) < 0) {
+                remove(e);
+                i--;
+            }
+        }
+        return result;
     }
 
     @Override
