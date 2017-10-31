@@ -1,4 +1,4 @@
-package cs3.assignment1.implementingLists;
+package cs3.assignment1.assignment7;
 
 public interface MyList<E> extends Iterable<E> {
 

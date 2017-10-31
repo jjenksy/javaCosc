@@ -1,4 +1,4 @@
-package cs3.assignment1.implementingLists;
+package cs3.assignment1.assignment7;
 
 public abstract class MyAbstractList<E> implements MyList<E> {
     protected int size = 0; // The size of the list

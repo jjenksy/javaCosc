@@ -1,8 +1,7 @@
-package cs3.assignment1.implementingLists;
+package cs3.assignment1.assignment7;
 
 import java.util.Arrays;
 import java.util.Iterator;
-import java.util.function.Consumer;
 
 public class MyArrayList <E> extends MyAbstractList<E> {
 
