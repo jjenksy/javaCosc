@@ -131,18 +131,28 @@ public class MyLinkedList<E> extends MyAbstractList<E> {
      * Returns -1 if no match. */
     public int lastIndexOf(Object o) {
         // Your code here!
-
+        return 0;
     }
     /** Replace the element at the specified position in this list
      * with the specified element. */
     public E set(int index, E e) {
         // Your code here!
-
+        return null;
     }
 
     /** Return the element from this list at the specified index */
     public E get(int index) {
-        // Your code here!
+        if (index < 0 || index >= size) return null; // Out of range
+        else if (index == 0) return removeFirst(); // Remove first
+        else if (index == size - 1) return removeLast(); // Remove last
+        else {
+            Node<E> previous = head;
+
+            for (int i = 1; i <= index; i++) {
+                previous = previous.next;
+            }
+            return previous.element;
+        }
 
     }
 
@@ -221,6 +231,20 @@ public class MyLinkedList<E> extends MyAbstractList<E> {
         public Node(E e) {
             element = e;
         }
+    }
+
+    public static void main(String[] args){
+         MyLinkedList<String> myLinkedList = new MyLinkedList<>();
+
+         myLinkedList.add("hello");
+         myLinkedList.add("test");
+         myLinkedList.add("test3");
+         myLinkedList.add("test4");
+         myLinkedList.add("test5");
+
+        for (String s: myLinkedList) System.out.print(s + " ");
+        System.out.println();
+        System.out.println(myLinkedList.get(0));
     }
 }
 
