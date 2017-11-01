@@ -1,6 +1,9 @@
 package cs3.assignment1.assignment7;
 
 /**
+ *  *  * Instructor: Jing Zhang, PhD
+ * Programming Assignment 2 Exercise 2
+ * Created by John Jenkins on 10/20/17.
  * The implementation of the methods contains(E e), get(int index), indexOf(E e),
  * lastIndexOf(E e), and set(int index, E e) for MylinkedList were omitted from the textbook
  * (Listing 24.6, page 916-918). Based on the contains(E e) and indexOf(E e) given below, please

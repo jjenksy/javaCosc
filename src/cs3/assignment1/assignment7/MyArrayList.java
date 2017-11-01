@@ -4,6 +4,9 @@ import java.util.Arrays;
 import java.util.Iterator;
 
 /**
+ *  * Instructor: Jing Zhang, PhD
+ * Programming Assignment 2 Exercise 1
+ * Created by John Jenkins on 10/20/17.
  * /** Adds the elements in otherList to this list.
  * Returns true if this list changed as a result of the call
  * public boolean addAll(MyList<E> otherList);
