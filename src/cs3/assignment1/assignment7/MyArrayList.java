@@ -205,7 +205,10 @@ public class MyArrayList <E> extends MyAbstractList<E> {
     }
 
     public static void main(String[] strings){
-        MyList<String> list = new MyArrayList<>();
+        MyArrayList<String> list = new MyArrayList<>();
+        MyArrayList<String> list2 = new MyArrayList<>();
+        list2.add("Britain");
+        list2.add("Italy");
 
         // Add elements to the list list.add("America"); // Add it to the list System.out.println("(1) " + list);
         list.add(0, "Canada"); // Add it to the beginning of the list System.out.println("(2) " + list);
@@ -217,6 +220,16 @@ public class MyArrayList <E> extends MyAbstractList<E> {
         list.remove("Canada"); // Same as list.remove(0) in this case System.out.println("(7) " + list);
         list.remove(2); // Remove the element at index 2 System.out.println("(8) " + list);
         list.remove(list.size() - 1); // Remove the last element System.out.print("(9) " + list + "\n(10) ");
+        list.addAll(list2);
+
         for (String s: list) System.out.print(s.toUpperCase() + " ");
+        System.out.println();
+        list.removeAll(list2);
+        list2.add("GERMANY");
+        for (String s: list) System.out.print(s.toUpperCase() + " ");
+        list.retainAll(list2);
+        System.out.println();
+        for (String s: list) System.out.print(s.toUpperCase() + " ");
+
     }
 }
