@@ -131,13 +131,36 @@ public class MyLinkedList<E> extends MyAbstractList<E> {
      * Returns -1 if no match. */
     public int lastIndexOf(Object o) {
         // Your code here!
-        return 0;
+        int last = -1;
+        Node<E> current = head;
+        for (int i = 0; i < size; i++) {
+            if (current.element.equals(o)){
+                last = i;
+            }
+            current = current.next;
+        }
+        return last;
     }
     /** Replace the element at the specified position in this list
      * with the specified element. */
     public E set(int index, E e) {
         // Your code here!
-        return null;
+        // Implement it in this exercise
+        if (index < 0 || index >= size) return null; // Out of range
+        else if (index == 0) {
+            return head.element = e;
+        }
+        else if (index == size - 1) {
+            return tail.element = e;
+        } // Remove last
+        else {
+            Node<E> previous = head;
+
+            for (int i = 1; i <= index; i++) {
+                previous = previous.next;
+            }
+           return previous.element = e;
+        }
     }
 
     /** Return the element from this list at the specified index */
@@ -238,13 +261,20 @@ public class MyLinkedList<E> extends MyAbstractList<E> {
 
          myLinkedList.add("hello");
          myLinkedList.add("test");
+         myLinkedList.add("test5");
          myLinkedList.add("test3");
          myLinkedList.add("test4");
          myLinkedList.add("test5");
 
+         myLinkedList.add("test5");
+
         for (String s: myLinkedList) System.out.print(s + " ");
         System.out.println();
-        System.out.println(myLinkedList.get(0));
+        System.out.println(myLinkedList.get(4));
+        System.out.println(myLinkedList.set(4,"changed"));
+        for (String s: myLinkedList) System.out.print(s + " ");
+        System.out.println();
+        System.out.println(myLinkedList.lastIndexOf("test3"));
     }
 }
 
