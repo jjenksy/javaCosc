@@ -1,0 +1,24 @@
+Exercise 2. Let us consider the following eleven letters: A, E, F, G, H, I, L, M, N, O, S, and T,
+with the following frequencies: 0.04, 0.17, 0.04, 0.04, 0.04, 0.04, 0.04, 0.04, 0.10, 0.10, 0.25,
+and 0.10, respectively. Generate the Huffman tree and its associated code.
+
+ A,     E,     F,    G,    H,    I,    L,    M,    N,   O,    S     T
+0.04, 0.17, 0.04, 0.04, 0.04, 0.04, 0.04, 0.04, 0.10, 0.10, 0.25  0.10
+
+Huffman encoding:
+Symbol     Encoding
+S               010
+E               111
+T               011
+O               000
+N               001
+F               11011
+A               11010
+H               11001
+G               11000
+L               10011
+I               10010
+M               1000
+
+
+See HuffmanTree.pdf for the tree

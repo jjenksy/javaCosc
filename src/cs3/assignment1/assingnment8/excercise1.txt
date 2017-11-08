@@ -1,0 +1,6 @@
+Represent the array [2 5 -1 9 4 0 -3 7 3 14 6] as a binary search tree. Then list the preorder, inorder, postorder, and breadth-first traversals.
+
+1.) See Binary Search Tree.pdf file
+2.) preorder: 3, -1, 0, -3, 2, 5, 4, 9, 7, 6 , 14
+3.) inorder: -3, -1, 0, 2, 3, 4, 5, 6, 7, 9, 14
+4.) postorder: -3, -1, 2, 0, 4, 6, 7, 14, 9, 5, 3
