@@ -1,4 +1,4 @@
-Excercise1: Let us consider the following binary search tree over the nodes {A, E, M, N, S, T} using the alphabetical order. In case it is not a binary search tree, transform it into an “equivalent” (with the same nodes, but not necessarily edges) well-balanced binary search tree using the AVL algorithm.
+Exercise 1: Let us consider the following binary search tree over the nodes {A, E, M, N, S, T} using the alphabetical order. In case it is not a binary search tree, transform it into an “equivalent” (with the same nodes, but not necessarily edges) well-balanced binary search tree using the AVL algorithm.
         S
        / \
       E   T
@@ -7,14 +7,14 @@ Excercise1: Let us consider the following binary search tree over the nodes {A, 
        /
       M
 Answer:
-A LR imbalance has occured
+A LR imbalance has occurred, LR rotation fixes an LR imbalance
     N
    / \
   E   S
  / \   \
 A   M   T
 
-Excercise 2:
+Exercise 2:
 Let us consider the following binary search tree with nodes over the set of positive integers using the increasing order. In case it is not a binary search tree, transform it into an “equivalent” (with the same nodes, but not necessarily edges) well-balanced binary search tree using the AVL algorithm.
          10
         /  \
@@ -24,7 +24,15 @@ Let us consider the following binary search tree with nodes over the set of posi
     / \
    1   5
 
-Excercise 3: Let us consider the following binary search tree with nodes over the set of positive integers using the increasing order. In case it is not a binary search tree, transform it into an “equivalent” (with the same nodes, but not necessarily edges) well-balanced binary search tree using the AVL algorithm.
+Answer:
+A LR Imbalance has occurred, LR rotation fixes an LR imbalance
+
+        6
+       / \
+      3   10
+     / \  /  \
+    1  5 8   14
+Exercise 3: Let us consider the following binary search tree with nodes over the set of positive integers using the increasing order. In case it is not a binary search tree, transform it into an “equivalent” (with the same nodes, but not necessarily edges) well-balanced binary search tree using the AVL algorithm.
         10
        /  \
       6    16
@@ -32,8 +40,12 @@ Excercise 3: Let us consider the following binary search tree with nodes over th
          12  19
              / \
             17 21
+Answer:
+A RL imbalance has occurred, a RL rotation fixes an RL imbalance
+
 
 Exercise 4. Let us consider the following binary search tree with nodes over the set of positive integers using the increasing order. In case it is not a binary search tree, transform it into an “equivalent” (with the same nodes, but not necessarily edges) well-balanced binary search tree using the AVL algorithm.
+
 
         10
        /  \
@@ -42,3 +54,6 @@ Exercise 4. Let us consider the following binary search tree with nodes over the
         14    21
        /  \
       12  15
+
+Answer:
+A RL imbalance has occured, a RL rotation fixes an RL imbalance
