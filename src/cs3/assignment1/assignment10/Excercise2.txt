@@ -1,0 +1,42 @@
+Exercise 2. Let us consider an empty hashtable with 17 positions indexed from 0 to 16 which uses the
+hashcode function given by h(k) = k % 17, using the separate chaining scheme. Illustrate the content
+of the hashtable after inserting the elements 4, 10, 38, 21, 5, and 27, in this order.
+
+Answer:
+Separate chaining scheme is something in which each position has a link to avoid collisions we can use an Arraylist as the bucket to hold the values.
+
+Below keys to be inserted ,
+
+4%17=4
+
+10%17=10
+
+38%17=4
+
+21%17= 4
+
+5%17= 5
+
+27%17=10
+
+Here the elements 4,38,21 are colliding for the position index 4 and 10,27 are colliding for position 10 and 5 can be directly inserted without any collisions.
+
+Inserts look as shown below using chaining - used for blanks where nothing inserted -> represents chaining:
+
+16 -
+15 -
+14 -
+13 -
+12 -
+11 -
+10 10 -> 27 //10 and 27 inserted and chained
+09 -
+08 -
+07 -
+06 -
+05 05 //05 inserted no collision so no chaining
+04 04 -> 38 ->21 //04, 38 and 21 inserted and collisions occurs so chaining happens
+03 -
+02 -
+01 -
+00 -

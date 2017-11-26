@@ -1,0 +1,121 @@
+Exercise 1. Let us consider an empty hashtable with 17 positions indexed from 0 to 16 which uses the hashcode function given by h(k) = k % 17. Illustrate the content of the hashtable after inserting the elements 4, 10, 38, 21, 5, and 27, in this order, for each of the following probing techniques: linear hashing, quadratic hashing, and double hashing using a secondary function given by h’(k) = k % 11.
+
+Answer:
+
+linear probing:
+
+hi(x) = (h(x) + i) mod table size
+
+function hi(x) = (h(x) + i) mod 17
+
+insert(4) :
+
+h(4) = 4%17 = 4 => insert at 4
+
+insert(10):
+
+h(10) = 10%17 = 10 => insert at 10
+
+insert(38) :
+
+h(38) = 38 % 17 = 4 , location four is taken so linear probing checks the next spot and inserts at 5 (this will cause a clustering issue)
+
+insert(21) :
+
+h0(21) = (21%17 + 0) % 17 = 4 => full
+
+h1(21) = (21%17 + 1) % 17 = 5 => full
+
+h2(21) = (21%17 + 2) % 17 = 6 => free => insert at 6
+
+insert(5) :
+
+h0(5) = (5%17 + 0) % 17 = 5 => full
+
+h1(5) = (5%17 + 1) % 17 = 6 => full
+
+h2(5) = (5%17 + 2) % 17 = 7 => free => insert at 7
+
+insert(27) :
+
+h0(27) = (27%17 + 0) % 17 = 10 => full
+
+h1(27) = (27%17 + 1) % 17 = 11 => free => insert at 11
+
+Quadratic probing:
+
+hi(x) = (h(x) + i2) mod table size
+
+function hi(x) = (h(x) + i2) mod 17
+
+insert(4) :
+
+h0(4) = (4%17 + 02) % 17 = 4 => free => insert at 4
+
+insert(10) :
+
+h0(10) = (10%17 + 02) % 17 = 10 => free => insert at 10
+
+insert(38) :
+
+h0(38) = (38%17 + 02) % 17 = 4 => full
+
+h1(38) = (38%17 + 12) % 17 = 5 => free => insert at 5
+
+insert(21) :
+
+h0(21) = (21%17 + 02) % 17 = 4 => full
+
+h1(21) = (21%17 + 12) % 17 = 5 => full
+
+h2(21) = (21%17 + 22) % 17 = 8 => free => insert at 8
+
+insert(5):
+
+h0(5) = (5%17 + 02) % 17 = 5 => full
+
+h1(5) = (5%17 + 12) % 17 = 6 => free => insert at 6
+
+insert(27) :
+
+h0(27) = (27%17 + 02) % 17 = 10 => full
+
+h1(27) = (27%17 + 12) % 17 = 11 => free => insert at 11
+
+double hashing:
+
+hi(x) = (h(x) + i*h1(x)) mod table size
+
+=> hi(x) = (x%17 + i*(x%11)) % 17
+
+insert(4):
+
+h0(4) = (4%17 + 0 * (4%11))%17 = 4 => free => insert at 4
+
+insert(10):
+
+h0(10) = (10%17 + 0 * (10%11))%17 = 10 => free => insert at 10
+
+insert(38):
+
+h0(38) = (38%17 + 0 * (38%11))%17 = 4 => full
+
+h1(38) = (38%17 + 1 * (38%11))%17 = (4 + 1*5) % 17 = 9 => free => insert at 9
+
+insert(21):
+
+h0(21) = (21%17 + 0 * (21%11))%17 = 4 => full
+
+h1(21) = (21%17 + 1 * (21%11))%17 = (4 + 1*10) % 17 = 14 => free => insert at 14
+
+insert(5) :
+
+h0(5) = (5%17 + 0 * (5%11))%17 = 5 => free => insert at 5
+
+insert(27):
+
+h0(27) = (27%17 + 0 * (27%11))%17 = 10 => full
+
+h1(27) = (27%17 + 1 * (27%11))%17 = (10 + 1*5) % 17 = 15 => free
+
+double hashing works better here.
