@@ -1,0 +1,97 @@
+Exercise 1:
+a) What is the set of vertices and set of edges?
+Answer:
+set of vertices: {0,1,2,3,4,5,6,7,8,9,10,11,12}
+
+set of edges: : {(0,1),(0,9),(0,12),(1,10),(1,2),(2,10),(2,12),(2,11),(2,5),(2,3),(3,11),(3,12),(3,4),(4,9),(4,8),(5,12),(5,6),(6,7),(7,8),(7,9),(7,11),(7,12),(8,9),(9,10)}
+
+b) Is the graph directed or undirected?
+Answer: undirected
+
+c) Which are the vertices adjacent with vertex 12?
+Answer: 0,2,3,5,7
+
+d) Which are the edges adjacent with edge (3,12)?
+Answer: (3,2), (3,11), (3,4), (12,0), (12,2), (12,5), (12,7)
+
+e) What is the degree of vertices 0,2,3, and 12?
+Answer: Degree(0)=3
+
+        Degree(2)=6
+
+        Degree(3)=4
+
+        Degree(12)=5
+
+f) What node has the maximum degree in the above graph?
+
+Answer: node 2.
+        degree(2) = 6
+
+g) Enumerate all cycles which contain the edge (3,12).
+
+Answer: Cycles:
+
+0-1-2-3-12-0
+
+0-1-2-3-12-7-9-0
+
+0-1-2-3-12-7-8-9-0
+
+4-3-12-7-8-4
+
+4-3-12-5-6-7-8-4
+
+4-3-12-0-9-7-8-4
+
+4-3-12-0-1-10-9-7-8-4
+
+4-3-12-0-1-10-9-8-4
+
+4-3-12-0-1-2-11-7-8-4
+
+4-3-12-5-6-7-9-8-4
+
+4-3-12-5-6-7-9-4
+
+2-3-12-2
+
+h) Is the graph connected?
+
+Answer: The graph is connected. This is because there is a path from every vertex to reach any other vertex.
+
+g) Is the graph complete?
+
+Answer: The graph is not complete. This is not complete because in a complete graph every vertices are adjacent to every other vertices.
+
+
+
+Exercise 2 Answer:
+The initial node is 1
+
+
+1   2 - 4
+  \ |    \
+    3     6
+         /
+        5
+
+1--->3--->2--->4--->6--->5
+
+The corresponding weights are
+
+4+3+4+1+2=14
+
+Exercise 3:
+
+Initial Node is 1
+
+1 ---> 3 --> 5 --> 4 --> 6 --> 2
+
+            4    2
+1           ^ \  |
+  \         |  > 6
+    >3 -- > 5
+
+
+
